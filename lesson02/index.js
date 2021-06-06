@@ -1,6 +1,6 @@
 "use strict";
 
-const ulElement = document.getElementById("list");
+const ulElement = document.getElementById("ul");
 const liElement = document.createElement("li");
 const anchorElement = document.createElement("a");
 const imageElement = document.createElement("img");
