@@ -8,16 +8,14 @@ const itemList = [
     { link : 'a2.html', text: 'a2', src: "/img/bookmark.png"}
 ];
 
-for(var i = 0, len = itemList.length; i < len; i++) {
-    //nodeを作成していく処理
-    let list = itemList[i];
+itemList.forEach(function(item) {
     const liElement = document.createElement("li");
     const anchorElement = document.createElement("a");
     const imageElement = document.createElement("img");
-    anchorElement.href= list.link;
-    anchorElement.textContent = list.text;
-    imageElement.src = list.src;
+    anchorElement.href= item.link;
+    anchorElement.textContent = item.text;
+    imageElement.src = item.src;
     frag.appendChild(liElement).appendChild(anchorElement).appendChild(imageElement)
-}
+})
 
 ulElement.appendChild(frag);
