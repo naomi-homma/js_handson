@@ -16,7 +16,7 @@ itemList.forEach(function(item) {
     anchorElement.textContent = item.text;
     imageElement.src = item.img;
     imageElement.alt = item.alt;
-    frag.appendChild(liElement).appendChild(anchorElement).appendChild(imageElement)
+    frag.appendChild(liElement).appendChild(anchorElement).insertBefore(imageElement, anchorElement.firstChild)
 })
 
 ulElement.appendChild(frag);
