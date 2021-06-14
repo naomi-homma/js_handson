@@ -13,10 +13,8 @@ itemList.forEach(function(item) {
     const anchorElement = document.createElement("a");
     const imageElement = document.createElement("img");
     anchorElement.href= item.link;
-    anchorElement.textContent = item.text;
     imageElement.src = item.src;
-    frag.appendChild(liElement).appendChild(anchorElement).appendChild(imageElement)
-    console.dir(frag)
+    frag.appendChild(liElement).appendChild(anchorElement).appendChild(imageElement).insertAdjacentHTML("afterend", item.text)
 })
 
 ulElement.appendChild(frag);
