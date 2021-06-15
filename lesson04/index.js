@@ -12,11 +12,11 @@ itemList.forEach(function(item) {
     const liElement = document.createElement("li");
     const anchorElement = document.createElement("a");
     const imageElement = document.createElement("img");
-    anchorElement.href= `/` + `${item.to}`;
+    anchorElement.href= `/${item.to}`;
     anchorElement.textContent = item.text;
     imageElement.src = item.img;
     imageElement.alt = item.alt;
-    frag.appendChild(liElement).appendChild(anchorElement).appendChild(imageElement)
+    frag.appendChild(liElement).appendChild(anchorElement).insertBefore(imageElement, anchorElement.firstChild)
 })
 
 ulElement.appendChild(frag);
