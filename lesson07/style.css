@@ -1,7 +1,7 @@
 .loading {
     width: 100vw;
     height: 100vh;
-    transition: all 1s;
+    transition: all .5s;
     position: fixed;
     top: 0;
     left: 0;

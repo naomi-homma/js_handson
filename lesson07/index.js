@@ -1,8 +1,5 @@
 "use strict";
 
-//実装方針
-
-
 function createListDom(itemList) {
     const ulElement = document.getElementById("ul");
     const frag = document.createDocumentFragment();
@@ -20,6 +17,12 @@ function createListDom(itemList) {
     ulElement.appendChild(frag);
 }
 
+function removeLoading() {
+    const loadingImage = document.querySelector(".js-loading");
+    loadingImage.classList.add("loaded");
+    // loadingImage.parentNode.removeChild(loadingImage);
+}
+
 const fetchData = new Promise((resolve) => {
     const itemList = [
         {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"},
@@ -30,4 +33,4 @@ const fetchData = new Promise((resolve) => {
       }, 3000);
 });
 
-fetchData.then((itemList) => createListDom(itemList));
+fetchData.then((itemList) => createListDom(itemList)).then(() => removeLoading());
