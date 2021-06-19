@@ -1,0 +1,22 @@
+.loading {
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-img {
+    max-width: 100%;
+}
