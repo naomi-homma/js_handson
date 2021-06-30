@@ -17,8 +17,14 @@ function createListDom(itemList) {
     ulElement.appendChild(frag);
 }
 
+function createLoading() {
+    const bodyElement = document.querySelector('.body');
+    console.log(bodyElement)
+    bodyElement.insertAdjacentHTML('afterbegin', '<div class="loading"><img class="loading-img" src="./img/loading-circle.gif"></div></div>');
+}
+
 function removeLoading() {
-    const loadingImage = document.querySelector(".js-loading");
+    const loadingImage = document.querySelector(".loading");
     loadingImage.classList.add("loaded");
     // loadingImage.parentNode.removeChild(loadingImage);
 }
@@ -28,24 +34,12 @@ async function fetchData() {
         {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"},
         {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}
     ];
-    setTimeout(function () {
-        resolve(itemList);
+    await setTimeout(function () {
+        createListDom(itemList);
       }, 3000);
-
-    const createListDom = await createListDom(itemList)
-    const removeLoading = await removeLoading()
-
-    await
+      //ロード時に実行されてまう
+    await　removeLoading();
 }
 
-const fetchData = new Promise((resolve) => {
-    const itemList = [
-        {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"},
-        {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}
-    ];
-    setTimeout(function () {
-        resolve(itemList);
-      }, 3000);
-});
-
-fetchData.then((itemList) => createListDom(itemList)).then(() => removeLoading());
+createLoading();
+fetchData();
