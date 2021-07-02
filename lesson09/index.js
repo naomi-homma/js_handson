@@ -34,11 +34,11 @@ async function fetchData() {
         {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"},
         {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}
     ];
-    await setTimeout(function () {
-        createListDom(itemList);
-      }, 3000);
-      //ロード時に実行されてまう
-    await　removeLoading();
+    await new Promise((resolve) => setTimeout(function () {
+        resolve(itemList)
+      }, 3000));
+    createListDom(itemList);
+    removeLoading();
 }
 
 createLoading();
