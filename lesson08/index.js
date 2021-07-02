@@ -22,11 +22,11 @@ function createLoading() {
     bodyElement.insertAdjacentHTML('afterbegin', '<div class="loading"><img class="loading-img" src="./img/loading-circle.gif"></div></div>');
 }
 
-function removeLoading() {
-    const loadingImage = document.querySelector(".loading");
-    // loadingImage.classList.add("loaded");
-    loadingImage.parentNode.removeChild(loadingImage);
-}
+// function removeLoading() {
+//     const loadingImage = document.querySelector(".loading");
+//     // loadingImage.classList.add("loaded");
+//     loadingImage.parentNode.removeChild(loadingImage);
+// }
 
 const fetchData = new Promise((resolve, reject) => {
     // const itemList = [
