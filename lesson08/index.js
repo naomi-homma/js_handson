@@ -22,17 +22,7 @@ function createLoading() {
     bodyElement.insertAdjacentHTML('afterbegin', '<div class="loading"><img class="loading-img" src="./img/loading-circle.gif"></div></div>');
 }
 
-// function removeLoading() {
-//     const loadingImage = document.querySelector(".loading");
-//     // loadingImage.classList.add("loaded");
-//     loadingImage.parentNode.removeChild(loadingImage);
-// }
-
 const fetchData = new Promise((resolve, reject) => {
-    // const itemList = [
-    //     {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"},
-    //     {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}
-    // ];
     createLoading();
     setTimeout(function () {
         reject("データがありません！");
