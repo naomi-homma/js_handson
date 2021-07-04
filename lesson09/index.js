@@ -3,8 +3,9 @@
 const ul = document.getElementById("ul");
 
 function createListDom(itemList) {
+    const frag = document.createDocumentFragment();
+    
     itemList.forEach(function(item) {
-        const frag = document.createDocumentFragment();
         const li = document.createElement("li");
         const anchor = document.createElement("a");
         const image = document.createElement("img");
