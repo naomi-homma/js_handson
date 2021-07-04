@@ -4,7 +4,7 @@ const ul = document.getElementById("ul");
 
 function createListDom(itemList) {
     const frag = document.createDocumentFragment();
-    
+
     itemList.forEach(function(item) {
         const li = document.createElement("li");
         const anchor = document.createElement("a");
@@ -15,7 +15,8 @@ function createListDom(itemList) {
         image.alt = item.alt;
         frag.appendChild(li).appendChild(anchor).appendChild(image)
     });
-    ul.appendChild(frag);
+
+    return frag;
 }
 
 function createLoading() {
@@ -41,7 +42,7 @@ async function fetchData() {
     await new Promise((resolve) => setTimeout(function () {
         resolve(itemList)
       }, 3000));
-    createListDom(itemList);
+    ul.appendChild(createListDom(itemList));
     removeLoading();
 }
 
