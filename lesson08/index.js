@@ -18,21 +18,17 @@ function createListDom(itemList) {
 }
 
 function createLoading() {
-    const bodyElement = document.querySelector('.body');
-    bodyElement.insertAdjacentHTML('afterbegin', '<div class="loading"><img class="loading-img" src="./img/loading-circle.gif"></div></div>');
-}
-
-function removeLoading() {
-    const loadingImage = document.querySelector(".loading");
-    // loadingImage.classList.add("loaded");
-    loadingImage.parentNode.removeChild(loadingImage);
-}
+    const ulElement = document.getElementById("ul");
+    const loadingImgWrapElement = document.createElement("div");
+    const img = document.createElement("img");
+    loadingImgWrapElement.classList.add("js-loading");
+    img.src = "./img/loading-circle.gif";
+    img.classList.add("loading-img");
+    loadingImgWrapElement.appendChild(img);
+    ulElement.before(loadingImgWrapElement);
+  }
 
 const fetchData = new Promise((resolve, reject) => {
-    // const itemList = [
-    //     {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"},
-    //     {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}
-    // ];
     createLoading();
     setTimeout(function () {
         reject("データがありません！");
