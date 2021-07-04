@@ -18,15 +18,19 @@ function createListDom(itemList) {
 }
 
 function createLoading() {
-    const bodyElement = document.querySelector('.body');
-    console.log(bodyElement)
-    bodyElement.insertAdjacentHTML('afterbegin', '<div class="loading"><img class="loading-img" src="./img/loading-circle.gif"></div></div>');
+    const ulElement = document.getElementById("ul");
+    const loadingImgWrapElement = document.createElement("div");
+    const img = document.createElement("img");
+    loadingImgWrapElement.classList.add("js-loading");
+    img.src = "./img/loading-circle.gif";
+    img.classList.add("loading-img");
+    loadingImgWrapElement.appendChild(img);
+    ulElement.before(loadingImgWrapElement);
 }
 
 function removeLoading() {
-    const loadingImage = document.querySelector(".loading");
+    const loadingImage = document.querySelector(".js-loading");
     loadingImage.classList.add("loaded");
-    // loadingImage.parentNode.removeChild(loadingImage);
 }
 
 async function fetchData() {
