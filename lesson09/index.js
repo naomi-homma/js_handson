@@ -22,7 +22,7 @@ function createListDom(itemList) {
 function createLoading() {
     const loadingImgWrap = document.createElement("div");
     const image = document.createElement("img");
-    loadingImgWrap.classList.add("js-loading");
+    loadingImgWrap.id = "js-loading";
     image.src = "./img/loading-circle.gif";
     image.classList.add("loading-img");
     loadingImgWrap.appendChild(image);
@@ -30,7 +30,7 @@ function createLoading() {
 }
 
 function removeLoading() {
-    const loadingImage = document.querySelector(".js-loading");
+    const loadingImage = document.getElementById("js-loading");
     loadingImage.classList.add("loaded");
 }
 
