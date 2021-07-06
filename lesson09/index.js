@@ -23,6 +23,7 @@ function createLoading() {
     const loadingImgWrap = document.createElement("div");
     const image = document.createElement("img");
     loadingImgWrap.id = "js-loading";
+    loadingImgWrap.classList.add("loading");
     image.src = "./img/loading-circle.gif";
     image.classList.add("loading-img");
     loadingImgWrap.appendChild(image);
