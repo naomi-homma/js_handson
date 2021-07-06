@@ -1,9 +1,7 @@
-# [課題No]
+# [Issue No.]
 
-## [CodeSandBox](リンク)
+## [CodeSandBox]
 
-:最新のコミットリンク
+:Latest Commit
 
-## 実装上、不安なところ、重点的に見てもらいたいところ
-- コミットリンク
-- コミットリンク
+## Concerns and areas to focus on
