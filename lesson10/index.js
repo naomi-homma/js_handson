@@ -30,7 +30,7 @@ function createLoading() {
     ul.before(loadingImgWrap);
 }
 
-function removeLoading() {
+function hideLoading() {
     const loadingImage = document.getElementById("js-loading");
     loadingImage.classList.add("loaded");
 }
@@ -50,10 +50,10 @@ async function fetchData() {
 }
 
 async function init() {
-    const result = await fetchData()
+    createLoading();
+    const result = await fetchData();
     ul.appendChild(createListDom(result));
-    removeLoading();
+    hideLoading();
 }
 
-createLoading();
 init();
