@@ -1,6 +1,7 @@
 "use strict";
 
 const ul = document.getElementById("ul");
+const url = "http://myjson.dit.upm.es/api/bins/c42d";
 
 function createListDom(itemList) {
     const frag = document.createDocumentFragment();
@@ -15,7 +16,6 @@ function createListDom(itemList) {
         image.alt = item.alt;
         frag.appendChild(li).appendChild(anchor).appendChild(image)
     });
-
     return frag;
 }
 
@@ -35,17 +35,25 @@ function removeLoading() {
     loadingImage.classList.add("loaded");
 }
 
+//jsonデータ取得
 async function fetchData() {
-    const itemList = [
-        {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"},
-        {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}
-    ];
-    const result = await new Promise((resolve) => setTimeout(function () {
-        resolve(itemList)
-      }, 3000));
+    try {
+        const response = await fetch(url);
+        const json = await response.json();
+        const data = await json.data;
+        return data
+    } catch(e) {
+        throw new Error('データの読み込みに失敗しました。');
+    } finally {
+        console.log("finally")
+    }
+}
+
+async function init() {
+    const result = await fetchData()
     ul.appendChild(createListDom(result));
     removeLoading();
 }
 
 createLoading();
-fetchData();
+init();
