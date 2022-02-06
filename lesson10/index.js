@@ -1,7 +1,7 @@
 "use strict";
 
 const ul = document.getElementById("ul");
-const url = "http://myjson.dit.upm.es/api/bins/c42d";
+const url = "https://myjson.dit.upm.es/api/bins/c42d";
 
 function createListDom(itemList) {
     const frag = document.createDocumentFragment();
